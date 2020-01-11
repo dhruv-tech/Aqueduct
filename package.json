@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/dhruv-tech/Aqueduct/issues"
   },
-  "homepage": "https://github.com/dhruv-tech/Aqueduct#readme"
+  "homepage": "https://github.com/dhruv-tech/Aqueduct#readme",
+  "dependencies": {
+    "rivescript": "^2.0.0"
+  }
 }
