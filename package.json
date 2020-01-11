@@ -1,0 +1,19 @@
+{
+  "name": "aqueduct",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dhruv-tech/Aqueduct.git"
+  },
+  "author": "Annie Yao, Lian Duan, Dhruv Malik, Carlos Georgescu",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dhruv-tech/Aqueduct/issues"
+  },
+  "homepage": "https://github.com/dhruv-tech/Aqueduct#readme"
+}
