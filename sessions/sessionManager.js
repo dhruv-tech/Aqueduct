@@ -14,16 +14,7 @@ let connection = mongoose.connection;
 
 connection.once('open', async() => {
     console.log('[MongoDB] Connected!'.brightGreen);
-    let session = new Session();
-    session.number = "9899233217";
-    session.save(function (err) {
-        if(err){
-            console.log(err);
-        }
-        Session.find({number: "9899233216"}, function (err, docs) {
-            
-        }); 
-    });
+    expiryworker.init();
 });
 
 let sessionManager = {};
@@ -47,6 +38,39 @@ sessionManager.auth = async(num, sess) => {
                 } else {
                     resolve(docs[0].session);
                 }
+            }
+        });
+    });
+}
+
+//Background Worker
+
+// Configuration
+const interval = 30000; // 30 mins
+
+// Toolkit
+const expiryworker = {}
+expiryworker.init = () => {
+    expiryworker.loop();
+}
+
+expiryworker.loop = () => {
+    setInterval(() => {
+        expiryworker.now();
+    }, interval)
+}
+
+expiryworker.now = () => {
+    Session.find({}, async (err, docs) => {
+        docs.forEach(element => {
+            let sessionTime = element.lastInteraction;
+            sessionTime.setMinutes(sessionTime.getMinutes() + 30);
+            if(sessionTime < Date.now()){
+                console.log(element.number);
+                Session.findByIdAndRemove(element._id, (err) => {
+                    if(err) console.error(err);
+                });
+            
             }
         });
     });
