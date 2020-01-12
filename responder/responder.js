@@ -1,9 +1,10 @@
 // Response Service | Written by Dhruv on 11-01-2020
-const engine = require(engine);
-const franc = require(franc);
+const engine = require('engine');
+const franc = require('franc');
 
 const isoMapper = require('iso-639-3-to-1');
 const responder = {};
+const sessionManger = require('../sessions/sessionManager');
 
 const bot = new engine();
 bot.loadDirectory("./.data/").then(async() => {
@@ -15,7 +16,10 @@ bot.loadDirectory("./.data/").then(async() => {
 responder.buidReply = async(number, msg) => {
 
     // Establishing a session
-    
+    let vars = await sessionManger(number, "");
+    if(vars != '{}') {
+        bot.setUservars(number, vars);
+    }
     // Capturing Language
     let lang = franc(msg, {minLength: 3});
     lang = isoMapper(lang);
@@ -33,7 +37,8 @@ responder.buidReply = async(number, msg) => {
     }
 
     // Save session state
-
+    vars = bot.getUservars(number);
+    await sessionManger(number, vars);
     // Dispatch reply
     return reply;
 
