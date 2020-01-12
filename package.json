@@ -7,15 +7,9 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
-    "cookie-parser": "~1.4.4",
-    "debug": "~2.6.9",
-    "express": "~4.16.1",
-    "morgan": "~1.9.1",
-    "twilio": "^3.39.1",
-    "twilio-cli": "^1.9.1",
-    "body-parser": "^1.19.0",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5"
+    "franc": "^4.1.1",
+    "iso-639-3-to-1": "^1.0.0",
+    "rivescript": "^2.0.0"
   },
   "repository": {
     "type": "git",
@@ -26,8 +20,5 @@
   "bugs": {
     "url": "https://github.com/dhruv-tech/Aqueduct/issues"
   },
-  "homepage": "https://github.com/dhruv-tech/Aqueduct#readme",
-  "dependencies": {
-    "rivescript": "^2.0.0"
-  }
+  "homepage": "https://github.com/dhruv-tech/Aqueduct#readme"
 }
