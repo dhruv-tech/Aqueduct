@@ -8,7 +8,7 @@ const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post('/', (req, res) => {
+app.post('/', async (req, res) => {
     const twiml = new MessagingResponse();
 
     if (req.body.Body != null) { //Check if response is not null, if it isn't then we delegate to the handler

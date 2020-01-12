@@ -1,5 +1,5 @@
 // Response Service | Written by Dhruv on 11-01-2020
-const engine = require('engine');
+const engine = require('./engine');
 const franc = require('franc');
 
 const isoMapper = require('iso-639-3-to-1');
@@ -7,7 +7,7 @@ const responder = {};
 const sessionManger = require('../sessions/sessionManager');
 
 const bot = new engine();
-bot.loadDirectory("./.data/").then(async() => {
+bot.loadDirectory("./responder/.data/").then(async() => {
     bot.sortReplies();
   }).catch((e) => {
     console.trace("Could not find rivescript files", e);

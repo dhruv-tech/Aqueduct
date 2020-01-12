@@ -28,9 +28,9 @@ connection.once('open', async() => {
 
 const sessionManager = {};
 
-sessionManager.auth = (num, sess) => {
-    return new Promise((resolve, reject) => {
-        Session.find({number: num}, function (err, docs) {
+sessionManager.auth = async(num, sess) => {
+    return new Promise(async(resolve, reject) => {
+        Session.find({number: num}, async (err, docs) => {
             if(docs.length == 0){
                 let session = new Session();
                 session.number = number;
