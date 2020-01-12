@@ -2,6 +2,7 @@ const http = require('http');
 const express = require('express');
 const MessagingResponse = require('twilio').twiml.MessagingResponse;
 const bodyParser = require('body-parser');
+const responder = require('./responder/responder');
 
 const app = express();
 
@@ -12,7 +13,8 @@ app.post('/', (req, res) => {
 
     if (req.body.Body != null) { //Check if response is not null, if it isn't then we delegate to the handler
         var number = req.body.From;
-        twiml.message(number);
+        let msg = await responder.buidReply(number, req.body.Body);
+        twiml.message(msg);
     } else {
         twiml.message(
             'Sorry something went wrong, please try again later'
