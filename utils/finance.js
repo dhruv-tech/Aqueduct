@@ -1,7 +1,7 @@
 //this is like an import statement
 var AlphaVantageAPI = require('alpha-vantage-cli').AlphaVantageAPI;
 //var values = 'Close";
-var yourApiKey = 'LT94QSBCP5ZK2E19';
+var yourApiKey = 'R4I233ZPP0MRLY35';
 var alphaVantageAPI = new AlphaVantageAPI(yourApiKey, 'compact', true);
 //
 const getFinance = async(company) => {
