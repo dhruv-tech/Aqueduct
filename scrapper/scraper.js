@@ -1,5 +1,6 @@
 const request = require('request');
 const cheerio = require('cheerio');
+const summary = require('../utils/summary.js');
 
 scraper = (URL) => {
     return new Promise((resolve, reject) => {
@@ -8,8 +9,8 @@ scraper = (URL) => {
 
                 const $ = cheerio.load(html);
                 let paragraph = $('p');
-
-                resolve(paragraph.text());
+                //Summarized Web Scraper.
+                resolve(summary(paragraph.text(), 7, 5));
             }
         });
     });
