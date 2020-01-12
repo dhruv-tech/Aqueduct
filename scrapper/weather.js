@@ -1,5 +1,6 @@
 let http = require('http');
 const request = require('request');
+let weather = {};
 
 //create URL
 function createURL(city, countryCode) {
@@ -13,7 +14,7 @@ function createURL(city, countryCode) {
 }
 
 //main
-const weatherText = (weatherCity, weatherCountryCode) => {
+weather.get = (weatherCity, weatherCountryCode) => {
     return new Promise((resolve, reject) => {
         let text;
         request(createURL(weatherCity, weatherCountryCode), function (err, res, body) {
@@ -30,8 +31,14 @@ const weatherText = (weatherCity, weatherCountryCode) => {
 
 };
 
-//EXAMPLE OUTPUT
-/*weatherText("vancouver", "CA").then((i) => {
-    console.log(i);
-});*/
+module.exports = weather;
 
+//IN FALLING FUNCTION:
+/*
+const weather = require('./weather.js');
+
+const test = async() => {
+    console.log(await weather.get("Vancouver", "CA"));
+};
+
+test();*/
