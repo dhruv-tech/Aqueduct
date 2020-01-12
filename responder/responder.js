@@ -15,7 +15,7 @@ bot.loadDirectory("./.data/").then(async() => {
 
 responder.buidReply = async(number, msg) => {
 
-    // Establishing a session
+    // Establishing a session.
     let vars = await sessionManger(number, "");
     if(vars != '{}') {
         bot.setUservars(number, vars);
