@@ -24,7 +24,13 @@
     "request-promise": "^4.2.5",
     "rivescript": "^2.0.0",
     "twilio": "^3.39.1",
+<<<<<<< HEAD
     "twilio-cli": "^1.9.1"
+=======
+    "twilio-cli": "^1.9.1",
+    "cheerio": "latest",
+    "google-it": "^1.4.2"
+>>>>>>> 22231cb046f584606daf8c70088cade5cf0c6135
   },
   "repository": {
     "type": "git",
