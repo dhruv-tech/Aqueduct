@@ -33,7 +33,7 @@ responder.buidReply = async(number, msg) => {
 
     // Translate reply if needed
     if(lang != 'en') {
-        reply = translate;
+        //reply = translate;
     }
 
     // Save session state
@@ -58,3 +58,5 @@ const normalize = (txt) => {
     });
     return processedtext.join(' ');
 }
+
+module.exports = responder;
