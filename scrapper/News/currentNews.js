@@ -1,27 +1,21 @@
 const request = require('request');
 
 //initiate news array
-let News;
 function newsobj(url,title,date){
     this.url = url;
     this.title = title;
     this.date = date;
 }
 //make an array of current news
-news = () =>{
+getCurrentNews = () =>{
     let news = [];
     let len = 10;
     return new Promise((resolve, reject) => {
         let url = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=FXxODTyi1VJr9d4Wjhfyx8z73yaaeuGk';
         request(url, function (err, res, body) {
             let data = JSON.parse(body);
-            console.log(JSON.stringify(data));
             for (let i = 0; i < len; i++) {
                 news.push(new newsobj(data.results[i].url, data.results[i].title, data.results[i].published_date));
-                // console.log(data.results[i].url);
-                // console.log(data.results[i].title);
-                // console.log(data.results[i].published_date);
-
             }
             // console.log(JSON.stringify(news));
             resolve(news);
@@ -29,10 +23,11 @@ news = () =>{
     });
 };
 
-
+/*
 const test = async() => {
-    console.log(await news());
+    var list = (await getCurrentNews());
 };
-test();
+test();*/
 
+module.exports = getCurrentNews;
 
