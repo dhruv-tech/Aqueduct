@@ -1,5 +1,5 @@
 const requestPromise = require('request-promise');
-const summarizer = require('../utils/summary.js');
+const summarizer = require('./summary.js');
 
 
 

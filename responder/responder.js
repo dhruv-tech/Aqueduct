@@ -1,16 +1,15 @@
 // Response Service | Written by Dhruv on 11-01-2020
 const engine = require('./engine');
-const summary = require('../utils/summary.js');
-
 const langs = require('langs');
+
 const responder = {};
 const sessionManager = require('../sessions/sessionManager');
 const pos = require('pos');
-const weather = require('../scrapper/weather');
-const wiki = require('../scrapper/wikipedia');
+const weather = require('../utils/weather');
+const wiki = require('../utils/wikipedia');
 const colors = require('colors');
-const headlines = require('../scrapper/News/currentNews');
-const scraper = require('../scrapper/scraper');
+const headlines = require('../scraper/News/currentNews');
+const scraper = require('../scraper/scraper');
 const translate = require('../utils/translator');
 const stock = require('../utils/finance');
 const search = require('../utils/googleSearch');
