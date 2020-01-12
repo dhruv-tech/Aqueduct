@@ -20,6 +20,7 @@ class engine extends rivescript {
     async doMiddleware(user, input, output){
         let event = await super.getUservar(user, 'event');
         await super.setUservar(user, 'event', 'undefined');
+        console.log(event);
 
         if(event != 'undefined'){
             output = await this.middleware[event](input, output);

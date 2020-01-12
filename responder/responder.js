@@ -10,6 +10,7 @@ const weather = require('../scrapper/weather');
 const wiki = require('../scrapper/wikipedia');
 const colors = require('colors');
 const headlines = require('../scrapper/News/currentNews');
+const scraper = require('../scrapper/scraper');
 
 const bot = new engine();
 bot.loadDirectory("./responder/.data/").then(async() => {
@@ -128,12 +129,15 @@ bot.middleware.getNewsDetails = async(input, output) => {
     return new Promise(async(resolve) => {
 
         try{
-            let news = await bot.getUservar(usernum, news);
+            let news = await bot.getUservar(usernum, 'headlines');
+            
             output = "Here is the news: \n\n";
             
-            if(parseInt(input) == NaN) {
+            if(isNaN(input)) {
                 resolve(await responder.buidReply(usernum, input));
             } else {
+                let focus = news[parseInt(input)-1];
+                output = await scraper(focus.url);
                 
             }
 
