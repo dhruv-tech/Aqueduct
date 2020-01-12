@@ -23,7 +23,7 @@
 
 + *
 % provided headlines to user 
-- <set event="getNewsDetails">
+- <set event=getNewsDetails>
 
 
 + what[ is| are| was] *
