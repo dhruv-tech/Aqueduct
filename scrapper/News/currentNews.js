@@ -23,21 +23,12 @@ getCurrentNews = () =>{
     });
 };
 
-<<<<<<< HEAD
 
 /*const test = async() => {
     var list = (await getCurrentNews());
     console.log(list);
 };
 test();*/
-=======
-//
-// const test = async() => {
-//     var list = (await getCurrentNews());
-//     console.log(list);
-// };
-// test();
->>>>>>> 22231cb046f584606daf8c70088cade5cf0c6135
 
 module.exports = getCurrentNews;
 

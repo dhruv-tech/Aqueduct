@@ -1,5 +1,5 @@
 ! version = 2.0
-+ (hello|hi|hi there|hey|howdy)
++ (hello|hi|hi there|hey|howdy) *
 - Hi! Nice to meet you 😊
 - Hey! Hey! Hey!
 - Howdy! 🤠
@@ -47,12 +47,16 @@
 - Have a great day ahead 👌
 
 + what[ can] you do
-- Ask me about: weather, stocks, translation, news, or encyclopedic knowledge.
+- Ask me about: weather, stocks, translation, news, encyclopedic knowledge, search, trivia, and jokes.
 
 + tell me[ a| another] joke
 - Ask your friends 😛
 - I was gonna tell a time-traveling joke, but you guys didn’t like it. 
 - My three favorite things are eating my family and not using commas. 🤣
+- Why did the chicken cross the road? She was playing Crossy Road! 🚗
+- I ate a clock yesterday, it was very time-consuming. ⌛
+- A perfectionist walked into a bar…apparently, the bar wasn’t set high enough. 🤦‍♀️
+- Have you played the updated kids’ game? I Spy With My Little Eye . . . Phone. 📞
 
 + stock[s]
 - I understand that you need data about a particular stock. Please tell me the listing code for the stock that you want information about.
@@ -66,3 +70,33 @@
 
 + [*]stock[*]
 @ stock
+
++ [ok|okay] google
+- um... Sorry?
+
++ search *
+- <set query=<star>> <set event=search>
+
++ google *
+@ search <star>
+
++ translate * to *
+- <set text=<star1>> <set target=<star2>> <set event=translate>
+
++ translate to *
+- Translate what? <set target=<star>>
+
++ *
+% translate what?
+- <set text=<star>> <set event=translate>
+
++ (trivia|tell[ me][ a| another] fact)
+- Charlie Chaplin once entered a “Charlie Chaplin walk” contest… and came in 20th 🕺
+- In one of the more hilarious examples of irony, McDonalds’ employee health page, which is now shut down, once warned against eating McDonald’s burgers and fries. 🍔
+- "Father of Traffic Safety” William Eno invented the stop sign, crosswalk, traffic circle, one-way street, and taxi stand—but never learned how to drive. 🛑
+- The only losing basketball coach in University of Kansas history is James Naismith—the man who invented basketball in 1891. 🏀
+- According to researchers, duct tape should never be used for sealing ducts. 🤣
+- In 2011, the winners of an elementary school spelling bee in Utah received a trophy reading “Viewmont Spellling Bee, 1st Place.” 🐝
+
++ *
+- Sorry, I do not understand and am unable to help in this regard.

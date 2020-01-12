@@ -22,10 +22,10 @@ var google = function(query){
     });
 };
 
-const test = async() => {
+/*const test = async() => {
     console.log(await google("cow"));
 };
 
-test();
+test();*/
 
 module.exports = google;

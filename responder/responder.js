@@ -1,9 +1,8 @@
 // Response Service | Written by Dhruv on 11-01-2020
 const engine = require('./engine');
-const franc = require('franc');
 const summary = require('../utils/summary.js');
 
-const isoMapper = require('iso-639-3-to-1');
+const langs = require('langs');
 const responder = {};
 const sessionManager = require('../sessions/sessionManager');
 const pos = require('pos');
@@ -14,6 +13,7 @@ const headlines = require('../scrapper/News/currentNews');
 const scraper = require('../scrapper/scraper');
 const translate = require('../utils/translator');
 const stock = require('../utils/finance');
+const search = require('../utils/googleSearch');
 
 const bot = new engine();
 bot.loadDirectory("./responder/.data/").then(async() => {
@@ -31,9 +31,6 @@ responder.buidReply = async(number, msg) => {
     if(vars != '{}') {
         bot.setUservars(number, JSON.parse(vars));
     }
-    // Capturing Language
-    let lang = franc(msg, {minLength: 3});
-    lang = isoMapper(lang);
 
     // Getting Reply from Service.
     let reply = await bot.reply(number, normalize(msg));
@@ -158,4 +155,43 @@ bot.middleware.getStock = async(input, output) => {
         resolve(output);
 
     })
+}
+
+bot.middleware.search = async(input, output) => {
+    return new Promise(async(resolve) => {
+
+        let query = await bot.getUservar(usernum, 'query');
+        
+        try{
+            output = await search(query);
+        } catch(e) {
+            output = `Sorry, I could not find results for ${query}`;
+        }
+ 
+        resolve(output);
+
+    })
+}
+
+bot.middleware.translate = async(input, output) => {
+    return new Promise(async(resolve) => {
+
+        let target = await bot.getUservar(usernum, 'target');
+        let oTarget = target;
+        target = target[0].toUpperCase() + target.substr(1).toLowerCase();
+        target = langs.where("name", target)['1'];
+        console.log(target);
+        let text = await bot.getUservar(usernum, 'text');
+
+        output += `The translation to ${oTarget} is: \n`
+        
+        try{
+            output += await translate(text, 'en', target);
+        } catch(e) {
+            output = `Sorry, I am unable to translate ${text} to ${oTarget} rn`;
+        }
+ 
+        resolve(output);
+
+    });
 }
