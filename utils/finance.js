@@ -5,7 +5,7 @@ var yourApiKey = 'LT94QSBCP5ZK2E19';
 var alphaVantageAPI = new AlphaVantageAPI(yourApiKey, 'compact', true);
 //
  function getFinance (company, info)
- {
+{
 alphaVantageAPI.getDailyData(company)
     .then(dailyData => {
       if(info==("Close"))
