@@ -8,3 +8,5 @@ function translate(text, languageFrom, languageTo)
     });
 });
 }
+
+module.exports = translate;

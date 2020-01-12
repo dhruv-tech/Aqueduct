@@ -1,6 +1,11 @@
 ! version = 2.0
-+ hello
-- Hey, What's up!
++ (hello|hi|hi there|hey|howdy)
+- Hi! Nice to meet you 😊
+- Hey! Hey! Hey!
+- Howdy! 🤠
+- Hello! How may I help you?
+- Hi, there!
+
 
 + weather
 - For which city?
@@ -33,6 +38,31 @@
 
 + [thanks|thank you]
 - 👍
+- No problem
+- You're Welcome! 😊
 
 + bye
 - Bye!
+- See-yaa!
+- Have a great day ahead 👌
+
++ what[ can] you do
+- Ask me about: weather, stocks, translation, news, or encyclopedic knowledge.
+
++ tell me[ a| another] joke
+- Ask your friends 😛
+- I was gonna tell a time-traveling joke, but you guys didn’t like it. 
+- My three favorite things are eating my family and not using commas. 🤣
+
++ stock[s]
+- I understand that you need data about a particular stock. Please tell me the listing code for the stock that you want information about.
+
++ *
+% i understand that you need data about a particular stock please tell me the listing code for the stock that you want information about
+- <set stock=<star>> <set event=getStock>
+
++ [get |fetch ]stock[ data][ for] *
+- <set stock=<star>> <set event=getStock>
+
++ [*]stock[*]
+@ stock

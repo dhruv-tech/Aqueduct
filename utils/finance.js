@@ -4,29 +4,15 @@ var AlphaVantageAPI = require('alpha-vantage-cli').AlphaVantageAPI;
 var yourApiKey = 'LT94QSBCP5ZK2E19';
 var alphaVantageAPI = new AlphaVantageAPI(yourApiKey, 'compact', true);
 //
- function getFinance (company, info)
-{
-alphaVantageAPI.getDailyData(company)
-    .then(dailyData => {
-      if(info==("Close"))
-      {
-        console.log("Daily close: "+dailyData[0].Close);
-        //console.log(dailyData[0].Close);
-      }
-      if(info==("Open"))
-      {
-      console.log("Daily Open: "+dailyData[0].Open);
-        //console.log(dailyData[0].Open);
-      }
-      if(info==("Low"))
-      {
-        console.log("Daily Low: "+dailyData[0].Low);
-        //console.log(dailyData[0].Low);
-      }
-   })
-  //  .catch(err => {
-  //      console.error(err);
-  //  });
+const getFinance = async(company) => {
+  return new Promise(async(resolve) => {
+    await alphaVantageAPI.getDailyData(company.toUpperCase()).then(dailyData => {
+    
+      let out = `Stock Data - ${company.toUpperCase()}\n \nDaily Close: ${dailyData[0].Close} \nDaily Open: ${dailyData[0].Open} \nDaily Low: ${dailyData[0].Low}`;
+      resolve(out);
+    });
+
+  });
 }
 
-getFinance("MSFT", "Open");
+module.exports = getFinance;

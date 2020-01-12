@@ -12,6 +12,8 @@ const wiki = require('../scrapper/wikipedia');
 const colors = require('colors');
 const headlines = require('../scrapper/News/currentNews');
 const scraper = require('../scrapper/scraper');
+const translate = require('../utils/translator');
+const stock = require('../utils/finance');
 
 const bot = new engine();
 bot.loadDirectory("./responder/.data/").then(async() => {
@@ -33,17 +35,8 @@ responder.buidReply = async(number, msg) => {
     let lang = franc(msg, {minLength: 3});
     lang = isoMapper(lang);
 
-    if(lang != 'en') {
-        //msg = translate;
-    }
-
     // Getting Reply from Service.
     let reply = await bot.reply(number, normalize(msg));
-
-    // Translate reply if needed
-    if(lang != 'en') {
-        //reply = translate;
-    }
 
     // Save session state
     vars = bot.getUservars(number);
@@ -131,13 +124,13 @@ bot.middleware.getNewsDetails = async(input, output) => {
 
         try{
             let news = await bot.getUservar(usernum, 'headlines');
-            
+            console.table(news);
             output = "Here is the news: \n\n";
             
             if(isNaN(input)) {
                 resolve(await responder.buidReply(usernum, input));
             } else {
-                let focus = news[parseInt(input)-1];
+                let focus = news[parseInt(input)];
                 output = await scraper(focus.url);
                 
             }
@@ -148,5 +141,21 @@ bot.middleware.getNewsDetails = async(input, output) => {
         }
  
         resolve(output);
+    })
+}
+
+bot.middleware.getStock = async(input, output) => {
+    return new Promise(async(resolve) => {
+
+        let stockCode = await bot.getUservar(usernum, 'stock');
+        
+        try{
+            output = await stock(stockCode);
+        } catch(e) {
+            output = `Sorry I could not find stock matching ${stockCode}`;
+        }
+ 
+        resolve(output);
+
     })
 }
