@@ -22,7 +22,8 @@
     "rivescript": "^2.0.0",
     "twilio": "^3.39.1",
     "twilio-cli": "^1.9.1",
-    "cheerio": "latest"
+    "cheerio": "latest",
+    "google-it": "^1.4.2"
   },
   "repository": {
     "type": "git",
