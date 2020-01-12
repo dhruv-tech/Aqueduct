@@ -7,14 +7,14 @@
 - Hi, there!
 
 
-+ weather
++ [what ][is ][the ]weather[ like][ today]
 - For which city?
 
 + *
 % for which city?
 - <set city=<star>> <set event=getWeather>
 
-+ weather[ at| for] *
++ [what |how ][is ][the ]weather[ at| for] *
 - <set city=<star>> <set event=getWeather>
 
 + what is[ the] news[ for][ today]
