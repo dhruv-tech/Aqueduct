@@ -18,7 +18,6 @@ weather.get = (weatherCity, weatherCountryCode) => {
     return new Promise((resolve, reject) => {
         let text;
         request(createURL(weatherCity, weatherCountryCode), function (err, res, body) {
-
             let data = JSON.parse(body);
             text =
                 data['name'] + '\n' + //city name
