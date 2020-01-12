@@ -6,7 +6,7 @@ getCurrentNews = () =>{
     let len = 10;
     return new Promise((resolve, reject) => {
         try {
-            let url = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=FXxODTyi1VJr9d4Wjhfyx8z73yaaeuGk';
+            let url = 'https://api.nytimes.com/svc/mostpopular/v2/viewed/1.json?api-key=zJx7ZOIQET7yxPeiYAO600BpVwFNgioS';
             request(url, function (err, res, body) {
                 let data = JSON.parse(body);
                 for (let i = 0; i < len; i++) {
