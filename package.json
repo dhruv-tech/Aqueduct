@@ -20,7 +20,8 @@
     "twilio-cli": "^1.9.1",
     "body-parser": "^1.19.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.5"
+    "request-promise": "^4.2.5",
+    "cheerio": "latest"
   },
   "repository": {
     "type": "git",
