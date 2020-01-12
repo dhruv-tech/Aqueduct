@@ -1,3 +1,38 @@
 ! version = 2.0
 + hello
 - Hey, What's up!
+
++ weather
+- For which city?
+
++ *
+% for which city?
+- <set city=<star>> <set event=getWeather>
+
++ weather[ at| for] *
+- <set city=<star>> <set event=getWeather>
+
++ what is[ the] news[ for][ today]
+@ news
+
++ what are[ the] headlines[ for][ today]
+@ news
+
++ (news|headlines)
+- provided headlines to user <set event=getHeadlines>
+
++ *
+% provided headlines to user 
+- <set event="getNewsDetails">
+
+
++ what[ is| are| was] *
+- <set subject=<star>> <set event=getWiki>
++ who[ is| are| was] *
+- <set subject=<star>> <set event=getWiki>
+
++ [thanks|thank you]
+- 👍
+
++ bye
+- Bye!

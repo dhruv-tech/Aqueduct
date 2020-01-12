@@ -26,14 +26,14 @@ connection.once('open', async() => {
     });
 });
 
-const sessionManager = {};
+let sessionManager = {};
 
 sessionManager.auth = async(num, sess) => {
     return new Promise(async(resolve, reject) => {
         Session.find({number: num}, async (err, docs) => {
             if(docs.length == 0){
                 let session = new Session();
-                session.number = number;
+                session.number = num;
                 session.save(function (err) {
                     if(err){ reject(); }
                     else {resolve("{}");}
@@ -41,7 +41,7 @@ sessionManager.auth = async(num, sess) => {
             } else if (err) {
                 reject();
             } else {
-                if(session != "") {
+                if(sess != "") {
                    await Session.updateOne({ number: num }, { session: sess });
                    resolve(sess);
                 } else {
@@ -50,6 +50,6 @@ sessionManager.auth = async(num, sess) => {
             }
         });
     });
-
-    module.exports = sessionManager.auth;
 }
+
+module.exports = sessionManager;

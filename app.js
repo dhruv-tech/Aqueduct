@@ -13,7 +13,7 @@ app.post('/', async (req, res) => {
 
     if (req.body.Body != null) { //Check if response is not null, if it isn't then we delegate to the handler
         var number = req.body.From;
-        let msg = await responder.buidReply(number, req.body.Body);
+        let msg = await responder.buidReply(req.body.From, req.body.Body);
         twiml.message(msg);
     } else {
         twiml.message(

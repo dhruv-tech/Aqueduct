@@ -1,4 +1,5 @@
 const requestPromise = require('request-promise');
+const summarizer = require('../utils/summary.js');
 
 
 
@@ -15,15 +16,40 @@ const lookup = (query) => {
         };
 
         requestPromise(options).then(function(parsebody){
+            try {
+                for (var attribute in parsebody.query.pages){
+                    // console.log(attribute);
+                    // console.log(parsebody.query.pages[attribute].extract);
+                    if (attribute != null) {
+                        var value = parsebody.query.pages[attribute].extract.split('\.', 10);
+                        
+                        let count = 0;
+                        let pos = 0;
+                        let res = "";
+                        let limit = 3;
+                        while (count < limit) {
+                            
+                            if(value[pos].length > 1) {
+                                if (pos != 0) res += `.`; 
+                                res += ` ${value[pos]}`;
+                                pos++;
+                                count++;
+                                if (value[pos].length == 1) limit++;
+                            } else {
+                                res += `.${value[pos]}`;
+                                pos++;
+                            }
+                        }
+
+                        resolve(res);
+                    }
+                }
+            } catch (error) {
+                console.error(error);
+                resolve("Sorry, I am not sure 😢");
+            }
             // console.log(parsebody.query);
             // console.log(parsebody.query.pages[1]);
-            for (var attribute in parsebody.query.pages){
-                // console.log(attribute);
-                // console.log(parsebody.query.pages[attribute].extract);
-                if (attribute != null) {
-                    resolve(parsebody.query.pages[attribute].extract);
-                }
-            }
         });
     });
 };
