@@ -38,7 +38,7 @@ responder.buidReply = async(number, msg) => {
     vars = bot.getUservars(number);
     await sessionManager.auth(number, JSON.stringify(vars));
     // Dispatch reply
-    console.log(colors.cyan(`${reply}`));
+    //console.log(colors.cyan(`${reply}`));
     return reply;
 
 }
@@ -55,7 +55,7 @@ const normalize = (txt) => {
             processedtext.push(token);
         }
     });
-    console.log(colors.green(`${processedtext.join(' ')}`))
+    //console.log(colors.green(`${processedtext.join(' ')}`))
     return processedtext.join(' ');
 }
 
@@ -120,7 +120,7 @@ bot.middleware.getNewsDetails = async(input, output) => {
 
         try{
             let news = await bot.getUservar(usernum, 'headlines');
-            console.table(news);
+            //console.table(news);
             output = "Here is the news: \n\n";
             
             if(isNaN(input)) {
@@ -179,7 +179,7 @@ bot.middleware.translate = async(input, output) => {
         let oTarget = target;
         target = target[0].toUpperCase() + target.substr(1).toLowerCase();
         target = langs.where("name", target)['1'];
-        console.log(target);
+        //console.log(target);
         let text = await bot.getUservar(usernum, 'text');
 
         output += `The translation to ${oTarget} is: \n`
