@@ -23,12 +23,12 @@ getCurrentNews = () =>{
     });
 };
 
-
-const test = async() => {
-    var list = (await getCurrentNews());
-    console.log(list);
-};
-test();
+//
+// const test = async() => {
+//     var list = (await getCurrentNews());
+//     console.log(list);
+// };
+// test();
 
 module.exports = getCurrentNews;
 
