@@ -2,10 +2,15 @@ var googleTranslate = require('google-translate')("AIzaSyBBLY1xs-8NPFHObGk7jqf7l
 function translate(text, languageFrom, languageTo)
 {
   //if you use resolve, the computer will wait
-  return new Promise((resolve) => {
-    googleTranslate.translate(text, languageFrom, languageTo, function(err, translation) {
-      resolve(translation.translatedText);
-    });
+  return new Promise((resolve, reject) => {
+    try {
+      googleTranslate.translate(text, languageFrom, languageTo, function(err, translation) {
+        resolve(translation.translatedText);
+      });
+    } catch (error) {
+      reject();
+    }
+    
 });
 }
 
