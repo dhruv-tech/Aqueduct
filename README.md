@@ -1,12 +1,16 @@
-![](https://i.imgur.com/5HjpNj6.png)
 # Aqueduct
 
-![](https://api.travis-ci.org/Lian-D/Summary.JS.svg?branch=master) [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![](https://api.travis-ci.org/Lian-D/Summary.JS.svg?branch=master) [![License: Apache2.0](https://img.shields.io/badge/License-Apache%202.0-yellow.svg)](https://opensource.org/licenses/MIT)
  [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+ 
+ <img src="https://i.imgur.com/5HjpNj6.png" title="Logo" height="125px"/>
 
 ## Overview
-Aqueduct is a Twilio Based SMS internet browser designed to bring internet access to areas with little or no internet infrastructure.
+Aqueduct is a SMS-based chatbot designed to bring internet access to areas with little or no internet infrastructure. The service is primarily aimed at users of feature phones.
+
 This idea is an entry to NWHACKS2020.
+
+<img src="https://imgur.com/eftFdNH.png" title="Aqueduct - Empowering millions with access to knowledge"/>
 
 ## The Problem
 Many people around the world have access to SMS but are exposed to little or no internet access. Furthermore, in certain countries the Internet is heavily censored.
