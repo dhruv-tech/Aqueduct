@@ -21,4 +21,9 @@ Using Twilio, Web scraping and API's we've designed a client that allows for acc
 with this, thus providing a gateway for internet access through an unconventional mean.
 
 ## Contributors
-@Lian-D @Dhruv-Tech @qyyao @Carlos-Georgescu
+<ul>
+ <li><b>Lian Duan (</b><a href="https://github.com/Lian-D">Lian-D</a>)</li>
+ <li><b>Dhruv Malik (</b><a href="https://github.com/dhruv-tech">dhruv-tech</a>)</li>
+ <li><b>Annie Yao (</b><a href="https://github.com/qyyao">qyyao</a>)</li>
+ <li><b>Carlos Georgescu (</b><a href="https://github.com/Carlos-Georgescu">Carlos-Georgescu</a>)</li>
+</ul>
