@@ -11,9 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.post('/', async (req, res) => {
     const twiml = new MessagingResponse();
 
-    req.body = {};
-    req.body.Body = 'stock msft';
-    req.body.From = "+17789569471";
+
     if (req.body.Body != null) { //Check if response is not null, if it isn't then we delegate to the handler
         var number = req.body.From;
         let msg = await responder.buidReply(req.body.From, req.body.Body);
