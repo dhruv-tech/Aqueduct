@@ -10,7 +10,8 @@ getCurrentNews = () =>{
             request(url, function (err, res, body) {
                 let data = JSON.parse(body);
                 for (let i = 0; i < len; i++) {
-                    news.push({url: data.results[i].url, title: data.results[i].title, date: results[i].published_date});
+
+                    news.push({url: data.results[i].url, title: data.results[i].title, date: data.results[i].published_date});
                 }
                 // console.log(JSON.stringify(news));
                 resolve(news);

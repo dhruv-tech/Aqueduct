@@ -5,15 +5,16 @@ var google = function(query){
         googleIt({
             'query': query,
             'limit': '5',
-            'disableConsole ': true
+            'disableConsole': true
         }).then(results => {
+            //console.log(query);
             var finalString = "";
             for (var i = 0; i < results.length; i++){
                 finalString = finalString+"🔍 "+results[i].title+"\n"+
                     "📃 "+results[i].snippet+"\n";
             }
 
-            // console.log(results);
+            //console.log(results);
             resolve(finalString);
 
         }).catch(e => {
